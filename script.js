@@ -655,19 +655,23 @@ function showPaymentPrank() {
                 .getElementById("sharePlanButton")
                 .addEventListener("click", () => {
 
-                    const message = [
-                        "Hey! Here's our date plan \u{1F60E}",
-                        "",
-                        `\u{1F4C5} Date: ${datePlan.date}`,
-                        `\u{1F555} Time: ${datePlan.time}`,
-                        `\u{1F37D}\u{FE0F} Food: ${datePlan.food}`,
-                        `\u{1F4CD} Location: ${datePlan.location}`,
-                        "",
-                        "No deposit, no paperwork. Just good food and questionable jokes!"
-                    ].join("\n");
+                    const catImageURL =
+                        "https://symbolicdeth.github.io/date-invitation/images/date-cat.png";
 
-                    console.log("WhatsApp message:", message);
-                    console.log("Encoded message:", encodeURIComponent(message));
+                    const message = [
+                        "Hey! Here's our date plan.",
+                        "",
+                        "Date: " + datePlan.date,
+                        "Time: " + datePlan.time,
+                        "Food: " + datePlan.food,
+                        "Location: " + datePlan.location,
+                        "",
+                        "No deposit. No paperwork.",
+                        "Just good food and questionable jokes.",
+                        "",
+                        "Meet our official date chef:",
+                        catImageURL
+                    ].join("\n");
 
                     const whatsappURL =
                         `https://wa.me/?text=${encodeURIComponent(message)}`;
