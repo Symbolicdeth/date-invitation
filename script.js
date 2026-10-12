@@ -3,6 +3,28 @@ const noButton = document.getElementById("noButton");
 let escapeCount = 0;
 const maxEscapes = 15;
 
+function getDateOneMonthFromNow() {
+    const today = new Date();
+
+    // Use today's date without the current time.
+    const maxDate = new Date(
+        today.getFullYear(),
+        today.getMonth() + 1,
+        today.getDate()
+    );
+
+    // If the next month has fewer days, use its last day.
+    if (maxDate.getDate() !== today.getDate()) {
+        maxDate.setDate(0);
+    }
+
+    const year = maxDate.getFullYear();
+    const month = String(maxDate.getMonth() + 1).padStart(2, "0");
+    const day = String(maxDate.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+}
+
 function showReactionScreen() {
     const card = document.querySelector(".invitation-card");
 
@@ -97,6 +119,7 @@ function showPlanningMessage() {
     ].join("-");
 
     dateInput.min = localToday;
+    dateInput.max = getDateOneMonthFromNow();
 
     dateForm.addEventListener("submit", (event) => {
         event.preventDefault();
@@ -104,13 +127,20 @@ function showPlanningMessage() {
         const selectedDate = dateInput.value;
         const selectedTime = document.getElementById("timeInput").value;
 
-        if (!selectedDate || selectedDate < localToday) {
-            dateError.textContent =
-                "Please choose today or a future date.";
+        const maxDate = getDateOneMonthFromNow();
 
+        if (
+            !selectedDate ||
+            selectedDate < localToday ||
+            selectedDate > maxDate
+        ) {
+            dateError.textContent =
+                "Please choose a date within the next month.";
             dateError.hidden = false;
             return;
         }
+
+        dateError.hidden = true;
 
         const [year, month, day] = selectedDate.split("-").map(Number);
 
