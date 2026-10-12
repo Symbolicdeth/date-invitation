@@ -666,6 +666,9 @@ function showPaymentPrank() {
                         "No deposit, no paperwork. Just good food and questionable jokes!"
                     ].join("\n");
 
+                    console.log("WhatsApp message:", message);
+                    console.log("Encoded message:", encodeURIComponent(message));
+
                     const whatsappURL =
                         `https://wa.me/?text=${encodeURIComponent(message)}`;
 
