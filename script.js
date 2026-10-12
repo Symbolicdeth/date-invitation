@@ -3,6 +3,14 @@ const noButton = document.getElementById("noButton");
 let escapeCount = 0;
 const maxEscapes = 15;
 
+// Store the selected date plan
+const datePlan = {
+    date: "",
+    time: "",
+    food: "",
+    location: ""
+};
+
 function getDateOneMonthFromNow() {
     const today = new Date();
 
@@ -169,6 +177,9 @@ function showPlanningMessage() {
 }
 
 function showDateConfirmation(card, formattedDate, formattedTime) {
+
+    datePlan.date = formattedDate;
+    datePlan.time = formattedTime;
     card.innerHTML = `
         <span class="label">DATE SELECTED</span>
 
@@ -346,6 +357,8 @@ function showFoodSelection() {
 }
 
 function showFoodConfirmation(selectedFood) {
+
+    datePlan.food = selectedFood;
     const card = document.querySelector(".invitation-card");
 
     card.innerHTML = `
@@ -477,6 +490,12 @@ function showLocationSelection() {
 }
 
 function showFinalSummary(selectedLocation) {
+
+    datePlan.location = selectedLocation;
+
+    console.log("Date plan:", datePlan);
+    console.table(datePlan);
+
     const card = document.querySelector(".invitation-card");
 
     card.innerHTML = `
@@ -569,6 +588,10 @@ function showPaymentPrank() {
             OKAY, LET'S GO →
         </button>
 
+        <button id="sharePlanButton" class="share-button">
+            SHARE THE PLAN ON WHATSAPP
+        </button>
+
         <p class="footer">
             No money was harmed in the making of this invitation.
         </p>
@@ -581,6 +604,7 @@ function showPaymentPrank() {
     document
         .getElementById("finishButton")
         .addEventListener("click", () => {
+
             card.innerHTML = `
                 <div class="prank-icon">🎉</div>
 
@@ -593,9 +617,58 @@ function showPaymentPrank() {
                     Just good food and questionable jokes.
                 </p>
 
+                <div class="final-summary">
+                    <h2>Your date plan</h2>
+
+                    <div class="summary-item">
+                        <span>📅 Date</span>
+                        <strong>${datePlan.date}</strong>
+                    </div>
+
+                    <div class="summary-item">
+                        <span>🕕 Time</span>
+                        <strong>${datePlan.time}</strong>
+                    </div>
+
+                    <div class="summary-item">
+                        <span>🍽️ Food</span>
+                        <strong>${datePlan.food}</strong>
+                    </div>
+
+                    <div class="summary-item">
+                        <span>📍 Location</span>
+                        <strong>${datePlan.location}</strong>
+                    </div>
+                </div>
+
                 <p class="footer">
                     See you there!
                 </p>
             `;
+
+            card.style.animation = "none";
+            void card.offsetWidth;
+            card.style.animation = "cardAppear 0.5s ease";
         });
+        
+            document
+                .getElementById("sharePlanButton")
+                .addEventListener("click", () => {
+
+                    const message = `
+        Hey! Here's our date plan 😎
+
+        📅 Date: ${datePlan.date}
+        🕕 Time: ${datePlan.time}
+        🍽️ Food: ${datePlan.food}
+        📍 Location: ${datePlan.location}
+
+        No deposit, no paperwork. Just good food and questionable jokes!
+                    `.trim();
+
+                    const whatsappURL =
+                        `https://wa.me/?text=${encodeURIComponent(message)}`;
+
+                    window.open(whatsappURL, "_blank");
+                });
 }
