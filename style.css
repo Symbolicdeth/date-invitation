@@ -32,19 +32,21 @@ body {
 }
 
 .profile-picture {
-    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 22px;
 }
 
 .profile-picture img {
-    width: 110px;
-    height: 110px;
-
+    display: block;
+    width: 140px;
+    height: 140px;
     object-fit: cover;
-
-    border-radius: 20px;
-    background-color: #e7eadf;
+    object-position: center;
+    border-radius: 22px;
+    background: #e7eadf;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
 }
-
 .label {
     display: inline-block;
 

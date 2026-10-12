@@ -240,7 +240,7 @@ function showFoodSelection() {
 
     const foods = [
         { name: "Pizza", emoji: "🍕" },
-        { name: "Sushi", emoji: "🍣" },
+        { name: "Kebab", emoji: "🌮" },
         { name: "Burgers", emoji: "🍔" },
         { name: "Pasta", emoji: "🍝" },
         { name: "Tacos", emoji: "🌮" },
