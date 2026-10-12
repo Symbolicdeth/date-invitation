@@ -655,16 +655,16 @@ function showPaymentPrank() {
                 .getElementById("sharePlanButton")
                 .addEventListener("click", () => {
 
-                    const message = `
-        Hey! Here's our date plan 😎
-
-        📅 Date: ${datePlan.date}
-        🕕 Time: ${datePlan.time}
-        🍽️ Food: ${datePlan.food}
-        📍 Location: ${datePlan.location}
-
-        No deposit, no paperwork. Just good food and questionable jokes!
-                    `.trim();
+                    const message = [
+                        "Hey! Here's our date plan 😎",
+                        "",
+                        `📅 Date: ${datePlan.date}`,
+                        `🕕 Time: ${datePlan.time}`,
+                        `🍽️ Food: ${datePlan.food}`,
+                        `📍 Location: ${datePlan.location}`,
+                        "",
+                        "No deposit, no paperwork. Just good food and questionable jokes!"
+                    ].join("\n");
 
                     const whatsappURL =
                         `https://wa.me/?text=${encodeURIComponent(message)}`;
