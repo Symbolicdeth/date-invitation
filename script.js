@@ -656,12 +656,12 @@ function showPaymentPrank() {
                 .addEventListener("click", () => {
 
                     const message = [
-                        "Hey! Here's our date plan 😎",
+                        "Hey! Here's our date plan \u{1F60E}",
                         "",
-                        `📅 Date: ${datePlan.date}`,
-                        `🕕 Time: ${datePlan.time}`,
-                        `🍽️ Food: ${datePlan.food}`,
-                        `📍 Location: ${datePlan.location}`,
+                        `\u{1F4C5} Date: ${datePlan.date}`,
+                        `\u{1F555} Time: ${datePlan.time}`,
+                        `\u{1F37D}\u{FE0F} Food: ${datePlan.food}`,
+                        `\u{1F4CD} Location: ${datePlan.location}`,
                         "",
                         "No deposit, no paperwork. Just good food and questionable jokes!"
                     ].join("\n");
