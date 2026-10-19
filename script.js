@@ -1,7 +1,7 @@
 const yesButton = document.getElementById("yesButton");
 const noButton = document.getElementById("noButton");
 let escapeCount = 0;
-const maxEscapes = 15;
+const maxEscapes = 10;
 
 // Store the selected date plan
 const datePlan = {
@@ -39,7 +39,7 @@ function showReactionScreen() {
     card.innerHTML = `
         <span class="label">WELL, WELL, WELL...</span>
 
-        <h1>You actually said yes?</h1>
+        <h1>You said yes?</h1>
 
         <p class="description">
             Okay, let's make a plan.
@@ -98,6 +98,7 @@ function showPlanningMessage() {
                     <option value="18:00" selected>6:00 PM</option>
                     <option value="19:00">7:00 PM</option>
                     <option value="20:00">8:00 PM</option>
+                    <option value="21:00">9:00 PM</option>
                 </select>
             </div>
 
@@ -283,7 +284,7 @@ function showFoodSelection() {
         { name: "Pizza", emoji: "🍕" },
         { name: "Kebab", emoji: "🌮" },
         { name: "Burgers", emoji: "🍔" },
-        { name: "Pasta", emoji: "🍝" },
+        { name: "Whiskas", emoji: "🐱" },
         { name: "Tacos", emoji: "🌮" },
         { name: "Ramen", emoji: "🍜" }
     ];
@@ -580,12 +581,11 @@ function showPaymentPrank() {
 
             <p>
                 Your presence is more than enough.
-                You can keep your money.
             </p>
         </div>
 
         <button id="finishButton">
-            OKAY, LET'S GO →
+            LET'S GO →
         </button>
 
         <button id="sharePlanButton" class="share-button">
@@ -606,7 +606,11 @@ function showPaymentPrank() {
         .addEventListener("click", () => {
 
             card.innerHTML = `
-                <div class="prank-icon">🎉</div>
+                <div class="profile-picture">
+                <img
+                src="images/date-cat.png"
+                alt="A cat, ready for a date"
+            ></div>
 
                 <span class="label">RESERVATION CONFIRMED</span>
 

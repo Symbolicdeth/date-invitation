@@ -21,7 +21,7 @@ body {
     width: 100%;
     max-width: 460px;
 
-    background-color: #ffffff;
+    background-color: #c8cccc;
 
     padding: 40px 30px;
     border-radius: 22px;
@@ -34,13 +34,13 @@ body {
 .profile-picture {
     display: flex;
     justify-content: center;
-    margin-bottom: 22px;
+    margin-bottom: 12px;
 }
 
 .profile-picture img {
     display: block;
-    width: 140px;
-    height: 140px;
+    width: 160px;
+    height: 170px;
     object-fit: cover;
     object-position: center;
     border-radius: 22px;
@@ -99,16 +99,16 @@ button {
 }
 
 #yesButton {
-    background-color: #a9c5a9;
-    color: #243329;
+    background-color: #fdfffd;
+    color: #1f2c23;
 }
 
 #yesButton:hover {
-    background-color: #91b391;
+    background-color: #a9d7f8;
 }
 
 #noButton {
-    background-color: #eeeeee;
+    background-color: #a5d6b2;
     color: #555555;
 
     position: relative;
